@@ -40,10 +40,9 @@ def likeArticle(request, pk):
         else:
             Like.objects.filter(user=user, article=article).delete()
 
-        context = {
-            'likes': article.count_likes(),
-        }
+    context = {
+        'likes': article.count_likes(),
+    }
 
-        return JsonResponse(context, safe=False)
-    
-    return redirect('home')
+    return JsonResponse(context, safe=False)
+
