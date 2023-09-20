@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-15 13:00+0700\n"
+"POT-Creation-Date: 2023-09-20 10:36+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,26 +17,53 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-#: .\CMS\settings.py:119
-msgid "English"
-msgstr ""
 
-#: .\CMS\settings.py:120
-msgid "Vietnamese"
-msgstr ""
+#: .\home\templates\base_generic.html:26
+msgid "Home"
+msgstr "Trang Chủ"
+
+#: .\home\templates\base_generic.html:30
+msgid "Ranking"
+msgstr "BXH"
+
+#: .\home\templates\base_generic.html:39
+msgid "Logout"
+msgstr "Đăng Xuất"
+
+#: .\home\templates\base_generic.html:42
+#: .\home\templates\registration\login.html:27
+msgid "Login"
+msgstr "Đăng Nhập"
+
+#: .\home\templates\home\user_detail.html:7
+#: .\home\templates\home\user_update.html:8
+msgid "User Information"
+msgstr "Thông tin người dùng"
 
 #: .\home\templates\home\user_detail.html:9
 msgid "Your name"
-msgstr ""
+msgstr "Tên"
 
 #: .\home\templates\home\user_detail.html:19
 msgid "Username"
-msgstr ""
+msgstr "Tên tài khoản"
 
 #: .\home\templates\home\user_detail.html:23
 msgid "Password"
-msgstr ""
+msgstr "Mật khẩu"
 
-#: .\home\templates\home\user_update.html:8
-msgid "User Information"
-msgstr ""
+#: .\home\templates\registration\login.html:5
+msgid "Your username and password didn't match. Please try again."
+msgstr "Tài khoản hoặc mật khẩu không đúng. Mời nhập lại"
+
+#: .\home\templates\registration\login.html:12
+msgid "Please login to see this page."
+msgstr "Hãy đăng nhập để xem trang này"
+
+#: .\home\templates\registration\login.html:16
+msgid "Sign In"
+msgstr "Đăng Nhập"
+
+#: .\home\templates\registration\login.html:36
+msgid "Lost password?"
+msgstr "Quên mật khẩu ?"
