@@ -6,15 +6,9 @@ from django.http import JsonResponse
 from . models import User, Article, Like
 from . forms import UserForm
 
-#Home page
-def home(request):
-    articles = Article.objects.all().order_by("id")
-    context = {'articles': articles}
+def index(request):
+    return render(request, 'index.html')
 
-    return render(request, 'home.html', context)
-
-
-#Customize user information
 def showUserDetail(request, pk):
     user = get_object_or_404(User, id=pk)
     context = {'user': user}

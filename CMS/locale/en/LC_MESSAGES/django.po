@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-15 13:00+0700\n"
+"POT-Creation-Date: 2023-09-20 10:36+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,26 +17,53 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-#: .\CMS\settings.py:119
-msgid "English"
-msgstr ""
 
-#: .\CMS\settings.py:120
-msgid "Vietnamese"
-msgstr ""
+#: .\home\templates\base_generic.html:26
+msgid "Home"
+msgstr "Home"
+
+#: .\home\templates\base_generic.html:30
+msgid "Ranking"
+msgstr "Ranking"
+
+#: .\home\templates\base_generic.html:39
+msgid "Logout"
+msgstr "Logout"
+
+#: .\home\templates\base_generic.html:42
+#: .\home\templates\registration\login.html:27
+msgid "Login"
+msgstr "Login"
+
+#: .\home\templates\home\user_detail.html:7
+#: .\home\templates\home\user_update.html:8
+msgid "User Information"
+msgstr "User Information"
 
 #: .\home\templates\home\user_detail.html:9
 msgid "Your name"
-msgstr ""
+msgstr "Your name"
 
 #: .\home\templates\home\user_detail.html:19
 msgid "Username"
-msgstr ""
+msgstr "Username"
 
 #: .\home\templates\home\user_detail.html:23
 msgid "Password"
-msgstr ""
+msgstr "Password"
 
-#: .\home\templates\home\user_update.html:8
-msgid "User Information"
-msgstr ""
+#: .\home\templates\registration\login.html:5
+msgid "Your username and password didn't match. Please try again."
+msgstr "Your username and password didn't match. Please try again."
+
+#: .\home\templates\registration\login.html:12
+msgid "Please login to see this page."
+msgstr "Please login to see this page."
+
+#: .\home\templates\registration\login.html:16
+msgid "Sign In"
+msgstr "Sign In"
+
+#: .\home\templates\registration\login.html:36
+msgid "Lost password?"
+msgstr "Lost password?"

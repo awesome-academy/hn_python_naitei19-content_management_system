@@ -1,0 +1,41 @@
+{% extends "base_generic.html" %} {% block content %}
+{% load i18n %}
+<div class="login-form">
+  {% if form.errors %}
+  <p>{% trans "Your username and password didn't match. Please try again."%}</p>
+  {% endif %} {% if next %} {% if user.is_authenticated %}
+  <p>
+    {% trans 'Your account doesn't have access to this page. To proceed,please login with
+    an account that has access.'%}
+  </p>
+  {% else %}
+  <p>{% trans 'Please login to see this page.'%}</p>
+  {% endif %} {% endif %}
+  <div class="form-input-login">
+    <div class="login-form-container">
+      <h1>{% trans 'Sign In'%}</h1>
+      <form class="form-input" method="post" action="{% url 'login' %}">
+        {% csrf_token %}
+        <div class="username">
+          {{ form.username.label_tag }}
+          {{ form.username }}
+        </div>
+        <div class="pass">
+          {{ form.password.label_tag }}
+          {{ form.password }}
+        </div>
+        <input class="login-button" type="submit" value="{% trans 'Login'%}" /><input
+          type="hidden"
+          name="next"
+          value="{{ next }}"
+        />
+      </form>
+
+      {# Assumes you setup the password_reset view in your URLconf #}
+      <div class="pass-reset-request">
+        <a href="{% url 'password_reset' %}">{% trans 'Lost password?'%}</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
