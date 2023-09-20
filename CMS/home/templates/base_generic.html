@@ -14,7 +14,7 @@
     {% load static %}
     <script src="{% static 'fontawesomefree/js/all.min.js' %}"></script>
     <link href="{% static 'fontawesomefree/css/all.min.css' %}" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="{% static 'myfirst.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
   </head>
   <body>
     <div class="main">
@@ -33,6 +33,33 @@
             </div>
             <div class="user-select">
                 <ul>
+                    {% get_current_language as LANGUAGE_CODE %} 
+                    {% get_available_languages as LANGUAGES %} 
+                    {% get_language_info_list for LANGUAGES as languages %}
+                    <li class="lang-select">
+                        {% for language in languages %}
+                        <form
+                          action="{% url 'set_language' %}"
+                          method="post"
+                          style="display: inline"
+                        >
+                          {% csrf_token %}
+                          <input type="hidden" name="next" value="{{ redirect_to }}" />
+                          <input
+                            type="hidden"
+                            name="language"
+                            value="{{ language.code }}"
+                          />
+                          <input
+                            class="flags"
+                            type="image"
+                            src="{{ '/static/images/flags/'|add:language.code|add:'.png' }}"
+                            class="flag-lang"
+                            alt="{{ language.name_local }}"
+                          />
+                        </form>
+                        {% endfor %}
+                      </li>
                     {% if user.is_authenticated %}
                     <li>User: {{ user.get_username }}</li>
                     <li>

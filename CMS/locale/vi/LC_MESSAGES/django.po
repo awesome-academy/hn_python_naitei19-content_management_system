@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-20 10:36+0700\n"
+"POT-Creation-Date: 2023-09-20 16:31+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,12 +26,11 @@ msgstr "Trang Chủ"
 msgid "Ranking"
 msgstr "BXH"
 
-#: .\home\templates\base_generic.html:39
+#: .\home\templates\base_generic.html:66
 msgid "Logout"
 msgstr "Đăng Xuất"
 
-#: .\home\templates\base_generic.html:42
-#: .\home\templates\registration\login.html:27
+#: .\home\templates\base_generic.html:69
 msgid "Login"
 msgstr "Đăng Nhập"
 
@@ -52,18 +51,48 @@ msgstr "Tên tài khoản"
 msgid "Password"
 msgstr "Mật khẩu"
 
-#: .\home\templates\registration\login.html:5
-msgid "Your username and password didn't match. Please try again."
-msgstr "Tài khoản hoặc mật khẩu không đúng. Mời nhập lại"
-
-#: .\home\templates\registration\login.html:12
-msgid "Please login to see this page."
-msgstr "Hãy đăng nhập để xem trang này"
-
-#: .\home\templates\registration\login.html:16
+#: .\home\templates\registration\login.html:15
 msgid "Sign In"
+msgstr "Đăng Nhập"
+
+#: .\home\templates\registration\login.html:26
+#, fuzzy
+#| msgid "Login"
+msgid "login"
 msgstr "Đăng Nhập"
 
 #: .\home\templates\registration\login.html:36
 msgid "Lost password?"
 msgstr "Quên mật khẩu ?"
+
+#: .\home\templates\registration\login.html:39
+msgid "Don't have account ? "
+msgstr "Bạn chưa có tài khoản ? "
+
+#: .\home\templates\registration\login.html:39
+msgid "Register"
+msgstr "Đăng kí ngay"
+
+#: .\home\templates\registration\register.html:8
+#, fuzzy
+#| msgid "Sign In"
+msgid "Sign Up"
+msgstr "Đăng Nhập"
+
+#: .\home\templates\registration\register.html:23
+msgid "Signup"
+msgstr "Đăng kí"
+
+#: .\home\templates\registration\register.html:25
+msgid "i have already account >"
+msgstr "Đã có tài khoản >"
+
+#: .\home\views.py:46
+msgid "You have singed up successfully."
+msgstr "Bạn đã đăng kí thành công"
+
+#~ msgid "Your username and password didn't match. Please try again."
+#~ msgstr "Tài khoản hoặc mật khẩu không đúng. Mời nhập lại"
+
+#~ msgid "Please login to see this page."
+#~ msgstr "Hãy đăng nhập để xem trang này"

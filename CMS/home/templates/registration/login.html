@@ -1,15 +1,14 @@
-{% extends "base_generic.html" %} {% block content %}
-{% load i18n %}
+{% extends "base_generic.html" %} {% block content %} {%load i18n%}
 <div class="login-form">
   {% if form.errors %}
-  <p>{% trans "Your username and password didn't match. Please try again."%}</p>
+  <p>Your username and password didn\'t match. Please try again.</p>
   {% endif %} {% if next %} {% if user.is_authenticated %}
   <p>
-    {% trans 'Your account doesn't have access to this page. To proceed,please login with
-    an account that has access.'%}
+    Your account doesn't have access to this page. To proceed,please login with
+    an account that has access.
   </p>
   {% else %}
-  <p>{% trans 'Please login to see this page.'%}</p>
+  <p>Please login to see this page.</p>
   {% endif %} {% endif %}
   <div class="form-input-login">
     <div class="login-form-container">
@@ -24,7 +23,8 @@
           {{ form.password.label_tag }}
           {{ form.password }}
         </div>
-        <input class="login-button" type="submit" value="{% trans 'Login'%}" /><input
+        {% trans "login" as login_btn %}
+        <input class="login-button" type="submit" value="{{login_btn}}" /><input
           type="hidden"
           name="next"
           value="{{ next }}"
@@ -34,6 +34,9 @@
       {# Assumes you setup the password_reset view in your URLconf #}
       <div class="pass-reset-request">
         <a href="{% url 'password_reset' %}">{% trans 'Lost password?'%}</a>
+      </div>
+      <div class="pass-reset-request">
+        <p>{% trans "Don't have account ? "%}<a href="{% url 'register' %}">{% trans 'Register'%}</a></p>
       </div>
     </div>
   </div>

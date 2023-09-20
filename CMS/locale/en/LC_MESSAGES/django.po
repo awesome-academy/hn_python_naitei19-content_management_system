@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-20 10:36+0700\n"
+"POT-Creation-Date: 2023-09-20 16:30+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,12 +26,11 @@ msgstr "Home"
 msgid "Ranking"
 msgstr "Ranking"
 
-#: .\home\templates\base_generic.html:39
+#: .\home\templates\base_generic.html:66
 msgid "Logout"
 msgstr "Logout"
 
-#: .\home\templates\base_generic.html:42
-#: .\home\templates\registration\login.html:27
+#: .\home\templates\base_generic.html:69
 msgid "Login"
 msgstr "Login"
 
@@ -52,18 +51,48 @@ msgstr "Username"
 msgid "Password"
 msgstr "Password"
 
-#: .\home\templates\registration\login.html:5
-msgid "Your username and password didn't match. Please try again."
-msgstr "Your username and password didn't match. Please try again."
-
-#: .\home\templates\registration\login.html:12
-msgid "Please login to see this page."
-msgstr "Please login to see this page."
-
-#: .\home\templates\registration\login.html:16
+#: .\home\templates\registration\login.html:15
 msgid "Sign In"
 msgstr "Sign In"
+
+#: .\home\templates\registration\login.html:26
+msgid "login"
+msgstr "Login"
 
 #: .\home\templates\registration\login.html:36
 msgid "Lost password?"
 msgstr "Lost password?"
+
+#: .\home\templates\registration\login.html:39
+msgid "Don't have account ? "
+msgstr "Don't have account ? "
+
+#: .\home\templates\registration\login.html:39
+msgid "Register"
+msgstr "Register"
+
+#: .\home\templates\registration\register.html:8
+#, fuzzy
+#| msgid "Sign In"
+msgid "Sign Up"
+msgstr "Sign In"
+
+#: .\home\templates\registration\register.html:23
+#, fuzzy
+#| msgid "Sign In"
+msgid "Signup"
+msgstr "Sign In"
+
+#: .\home\templates\registration\register.html:25
+msgid "i have already account >"
+msgstr "i have already account >"
+
+#: .\home\views.py:46
+msgid "You have singed up successfully."
+msgstr "You have singed up successfully."
+
+#~ msgid "Your username and password didn't match. Please try again."
+#~ msgstr "Your username and password didn't match. Please try again."
+
+#~ msgid "Please login to see this page."
+#~ msgstr "Please login to see this page."
