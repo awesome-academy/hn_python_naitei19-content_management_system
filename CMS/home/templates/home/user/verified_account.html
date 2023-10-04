@@ -1,0 +1,9 @@
+{% extends "base_generic.html" %} {% block content %}
+{% load i18n %}
+<div class="activate">
+   <h3>
+    You already activate your account, click here to login again 
+    <a href="{% url 'login'%}?next={{request.path}}">{% trans 'Login'%}</a>
+   </h3>
+</div>
+{% endblock %}

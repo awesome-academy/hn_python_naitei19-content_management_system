@@ -56,10 +56,10 @@
                 </form>
                 {% endfor %}
             </li>
-            <li>
-                <a href="{% url 'own' request.user.id %}">Your posts</a>
-            </li>
             {% if user.is_authenticated %}
+            <li>
+              <a href="{% url 'own' request.user.id %}">Your posts</a>
+            </li>
             <li>
                 <a href="{% url 'user' request.user.id %}">User: {{ request.user.get_username }}</a>
             </li>
