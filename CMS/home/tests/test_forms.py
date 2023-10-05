@@ -1,5 +1,6 @@
 from django.test import TestCase
 from home.forms import RegisterForm
+from home.forms import UserForm
 from home.models import User
 
 class TestRegisterForm(TestCase):
@@ -96,3 +97,28 @@ class TestRegisterForm(TestCase):
         self.assertFalse(form.is_valid())
         self.assertIn('password2', form.errors)
         self.assertIn("This password is entirely numeric.", form.errors['password2'])
+
+class TestEditForm(TestCase):
+    def setUp(self):
+        self.form_data = {
+             'first_name': 'John',
+            'last_name': 'Doe',
+            'email': 'john.doe@example.com',
+            'username': 'johndoe123'
+        }
+        
+    def test_valid_form(self):
+        form = UserForm(data=self.form_data)
+        self.assertTrue(form.is_valid())
+
+    def test_blank_data(self):
+        form = UserForm(data={})
+        self.assertFalse(form.is_valid())
+        self.assertEqual(len(form.errors), 4)
+
+    def test_invalid_email(self):
+        invalid_email_data = self.form_data.copy()
+        invalid_email_data['email'] = 'invalid_email'
+        form = UserForm(data=invalid_email_data)
+        self.assertFalse(form.is_valid())
+        self.assertEqual(len(form.errors), 1)

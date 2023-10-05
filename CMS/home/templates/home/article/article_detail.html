@@ -75,6 +75,7 @@
     <button class="blog-widely-read-btn">{% trans 'Related blogs'%}</button>
     <div class="blog-row">
       {% for related in relateds %}
+      {% if related.status != 3 %}
       <div class="col-3">
         <div class="blog-post articles" data-article-id="{{ related.id }}">
           <div class="image-zoom">
@@ -135,6 +136,7 @@
           </div>
         </div>
       </div>
+        {% endif %}
       {% endfor %}
     </div>
   </div>

@@ -18,6 +18,7 @@
         <button class="blog-widely-read-btn">{% trans 'Widely Read'%}</button>
         <div class="blog-row">
           {% for article_item in articles_feature %}
+          {% if article_item.status != 3 %}
           <div class="col-3">
             <div
               class="blog-post articles"
@@ -94,6 +95,7 @@
               </div>
             </div>
           </div>
+            {% endif %}
           {% endfor %}
         </div>
       </div>
@@ -102,6 +104,7 @@
         <button class="blog-widely-read-btn">{% trans 'Blog all'%}</button>
         <div class="blog-row">
           {% for article_item in article %}
+            {% if article_item.status != 3 %}
           <div class="col-3">
             <div
               class="blog-post articles"
@@ -178,6 +181,7 @@
               </div>
             </div>
           </div>
+            {% endif %}
           {% endfor %}
         </div>
       </div>
