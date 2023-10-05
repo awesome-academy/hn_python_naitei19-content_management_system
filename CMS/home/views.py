@@ -47,20 +47,18 @@ def articleList(request):
     articles = Article.objects.all().order_by('-created_at')
     articles_feature = Article.objects.annotate(comment_count=Count('comment')).order_by('-comment_count')[:3]
     categories = Category.objects.annotate(num_articles=Count('article')).order_by('-num_articles')
-    # user = get_object_or_404(User, id=request.user.id)
-    
-    # for article in articles:
-    #     article.like = False
+    if request.user.is_authenticated:
+        for article in articles:
+            article.like = False
 
-    #     if Like.objects.filter(user=user, article=article).exists():
-    #         article.like = True
+            if Like.objects.filter(user=request.user, article=article).exists():
+                article.like = True
 
-    # for article in articles_feature:
-    #     article.like = False
-        
-    #     if Like.objects.filter(user=user, article=article).exists():
-    #         article.like = True
+        for article in articles_feature:
+            article.like = False
             
+            if Like.objects.filter(user=request.user, article=article).exists():
+                article.like = True      
     context = {
         'article': articles, 
         'articles_feature': articles_feature,
@@ -130,11 +128,13 @@ def deleteArticle(request, pk):
 def articleDetail(request, pk): 
     article = get_object_or_404(Article, id=pk)
     relateds = Article.objects.filter(category=article.category).exclude(id=pk).annotate(like_count=Count('like')).order_by('-like_count')[:3]
-    for related in relateds:
-        related.like = False
+    
+    if request.user.is_authenticated:
+        for related in relateds:
+            related.like = False
 
-        if Like.objects.filter(user=request.user, article=article).exists():
-            article.like = True
+            if Like.objects.filter(user=request.user, article=article).exists():
+                article.like = True
 
     comments = Comment.objects.filter(article=article).order_by('-created_at')
     rating = Rating.objects.filter(user=request.user.id, article=article).first()
@@ -161,17 +161,17 @@ def articleDetail(request, pk):
 #Like and rate article
 def likeArticle(request, pk):
     article = get_object_or_404(Article, id=pk)
-    user = get_object_or_404(User, id=request.user.id)
     check = 0
-    
-    if request.method == 'POST':
-        like = Like.objects.filter(user=user, article=article)
 
-        if not like.exists():
-            Like.objects.create(user=user, article=article)
-            check = 1
-        else:
-            like.delete()
+    if request.user.is_authenticated:
+        if request.method == 'POST':
+            like = Like.objects.filter(user=request.user, article=article)
+
+            if not like.exists():
+                Like.objects.create(user=request.user, article=article)
+                check = 1
+            else:
+                like.delete()
 
     context = {
         'likes': article.count_likes(),
