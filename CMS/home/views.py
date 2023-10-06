@@ -93,7 +93,7 @@ def newArticle(request):
             article = form.save(commit=False)
             article.author = request.user
             article.save()
-            return HttpResponseRedirect(reverse('own'))
+            return HttpResponseRedirect(reverse('own', args=[request.user.id]))
     else:
         form = ArticleForm()
     
@@ -109,7 +109,7 @@ def updateArticle(request, pk):
         form = ArticleForm(request.POST, request.FILES, instance=article)
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect(reverse('own'))
+            return HttpResponseRedirect(reverse('own', args=[request.user.id]))
         
     else:
         form = ArticleForm(instance=article)
@@ -125,7 +125,7 @@ def deleteArticle(request, pk):
         article.status = 3
         article.save()
 
-    return HttpResponseRedirect(reverse('own'))
+    return HttpResponseRedirect(reverse('own', args=[request.user.id]))
 
 def articleDetail(request, pk): 
     article = get_object_or_404(Article, id=pk)
@@ -142,15 +142,16 @@ def articleDetail(request, pk):
     rating = Rating.objects.filter(user=request.user.id, article=article).first()
     article.user_rating = rating.rating_value if rating else 0
 
-    if request.method == 'POST':
-        comment_form = CommentForm(data=request.POST)
-        if comment_form.is_valid():
-            comment = comment_form.save(commit=False)
-            comment.article = article
-            comment.user = request.user
-            comment.save()
-    else: 
-        comment_form = CommentForm()
+    if request.user.is_authenticated:
+        if request.method == 'POST':
+            comment_form = CommentForm(data=request.POST)
+            if comment_form.is_valid():
+                comment = comment_form.save(commit=False)
+                comment.article = article
+                comment.user = request.user
+                comment.save()
+        else: 
+            comment_form = CommentForm()
 
     return render(request, 'home/article/article_detail.html', {'article': article,
                                                                 'relateds': relateds,

@@ -15,23 +15,25 @@
                 {% if article_item.status != 3 %}
                 <div class="col-3">
                     <div class="blog-post articles" data-article-id="{{ article_item.id }}">
-                        <span>
-                            <div id="menu-wrap">
-                                <input type="checkbox" class="toggler" />
-                                <div class="dots">
-                                <div></div>
+                        {% if request.user.id == user.id %}
+                            <span>
+                                <div id="menu-wrap">
+                                    <input type="checkbox" class="toggler" />
+                                    <div class="dots">
+                                    <div></div>
+                                    </div>
+                                    <div class="menu">
+                                    <div>
+                                        <ul>
+                                            <li><a href="{% url 'articleUpdate' article_item.id %}" class="link">{% translate 'Edit' %}</a></li>
+                                            <li><a href="{% url 'articleDelete' article_item.id %}" class="link">{% translate 'Delete' %}</a></li>
+                                            
+                                        </ul>
+                                    </div>
+                                    </div>
                                 </div>
-                                <div class="menu">
-                                <div>
-                                    <ul>
-                                        <li><a href="{% url 'articleUpdate' article_item.id %}" class="link">{% translate 'Edit' %}</a></li>
-                                        <li><a href="{% url 'articleDelete' article_item.id %}" class="link">{% translate 'Delete' %}</a></li>
-                                        
-                                    </ul>
-                                </div>
-                                </div>
-                            </div>
-                        </span>
+                            </span>
+                        {% endif %}
                         
                         <div class="image-zoom">
                             <a href="{% url 'article' article_item.id %}" class="blog-img-url">
