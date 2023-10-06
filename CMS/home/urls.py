@@ -5,6 +5,7 @@ urlpatterns = [
     path('', views.articleList, name='index'),
     path('category/<str:category_name>/', views.articlesByCategory, name='articlesByCategory'),
     path('register/', views.sign_up, name='register'),
+    path('activate/<uidb64>/<token>', views.activate, name='activate'),
     path('user/<int:pk>/', views.showUserDetail, name='user'),
     path('userUpdate/<int:pk>/', views.updateUser, name='userUpdate'),
     path('new_article/', views.newArticle, name='newArticle'),

@@ -2,7 +2,7 @@
 {% load i18n %}
 <div class="login-form">
   {% if form.errors %}
-  <p>{% trans "Your username and password didn't match. Please try again."%}</p>
+  <p>{% trans "Your username and password didn't match or your account is inactive. Please try again."%}</p>
   {% endif %} {% if next %} {% if user.is_authenticated %}
   <p>
     {% trans 'Your account doesn't have access to this page. To proceed,please login with
